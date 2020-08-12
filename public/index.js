@@ -30,6 +30,7 @@ navigator.mediaDevices.getUserMedia({
     });
 
     socket.on('da-vao', (e) => {
+        
         console.log('nguoi dung ID=' + e.userId + " da vao phong ");
         connectToNewUser(e.userId, stream);
     });
