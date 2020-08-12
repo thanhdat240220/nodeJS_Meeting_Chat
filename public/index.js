@@ -7,7 +7,7 @@ myVideo.muted = true;
 const peer = new Peer(undefined, {
     path: '/peerjs',
     host: '/',
-    port: '3030'
+    port: process.env.PORT || "3030"
 });
 
 let myVideoStream = null;
@@ -30,7 +30,7 @@ navigator.mediaDevices.getUserMedia({
     });
 
     socket.on('da-vao', (e) => {
-        
+
         console.log('nguoi dung ID=' + e.userId + " da vao phong ");
         connectToNewUser(e.userId, stream);
     });
