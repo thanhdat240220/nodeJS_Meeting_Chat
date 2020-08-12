@@ -25,7 +25,7 @@ app.get('/:room', (req, res) => {
 let quantity = 0;
 io.on('connection', (socket) => {
     socket.on('vao-phong', (roomId, userId) => {
-        console.log('vao phong -s');
+        //console.log('vao phong -s');
         quantity++;
         socket.join(roomId);
         socket.to(roomId).broadcast.emit('da-vao', { userId });

@@ -15,7 +15,7 @@ navigator.mediaDevices.getUserMedia({
     video: true,
     audio: false
 }).then((stream) => {
-    console.log('stream');
+    //console.log('stream');
     myVideoStream = stream;
     addVideoStream(myVideo, stream);
 
@@ -31,13 +31,13 @@ navigator.mediaDevices.getUserMedia({
 
     socket.on('da-vao', (e) => {
 
-        console.log('nguoi dung ID=' + e.userId + " da vao phong ");
+        //console.log('nguoi dung ID=' + e.userId + " da vao phong ");
         connectToNewUser(e.userId, stream);
     });
 });
 
 peer.on('open', (id) => {
-    console.log('peer open');
+    //console.log('peer open');
     socket.emit('vao-phong', Room_ID, id);
 });
 
@@ -49,7 +49,7 @@ const connectToNewUser = (userId, stream) => {
     var call = peer.call(userId, stream);
     const videoTag = document.createElement('video');
     call.on('stream', function (remoteStream) {
-        console.log('peer stream');
+        //console.log('peer stream');
         addVideoStream(videoTag, remoteStream);
     });
 
