@@ -4,15 +4,17 @@ const server = require('http').Server(app);
 const { v4: uuidv4 } = require('uuid');
 const io = require('socket.io')(server);
 const { ExpressPeerServer } = require('peer');
+const path = require('path');
 
 const peerServer = ExpressPeerServer(server, {
     debug: true,
 });
 
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'hbs');
+app.set('views', path.resolve(__dirname, './App/views/home'));
 app.use('/peerjs', peerServer);
-app.use(express.static('public'));
+app.use(express.static('./App/src/home'));
 
 app.get('/', (req, res) => {
     res.redirect(`/${uuidv4()}`);

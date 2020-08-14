@@ -1,0 +1,21 @@
+.main {
+    height: 60vw;
+}
+
+#video-grid video {
+    height: 100px;
+    width: 150px;
+}
+
+.container__main {
+    display: flex;
+    height: inherit;
+}
+
+.container__main>.right__main {
+    flex-grow: 3;
+}
+
+.container__main .left__main {
+    flex-grow: 7;
+}
