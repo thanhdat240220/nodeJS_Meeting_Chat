@@ -12,9 +12,9 @@ const peerServer = ExpressPeerServer(server, {
 
 
 app.set('view engine', 'hbs');
-app.set('views', path.resolve(__dirname, './App/views/home'));
+app.set('views', path.resolve(__dirname, './public/views'));
 app.use('/peerjs', peerServer);
-app.use(express.static('./App/src/home'));
+app.use(express.static('./public'));
 
 app.get('/', (req, res) => {
     res.redirect(`/${uuidv4()}`);
